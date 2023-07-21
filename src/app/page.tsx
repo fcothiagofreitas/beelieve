@@ -1,3 +1,5 @@
+// sales@beelieve.dev
+'use client'
 import Image from 'next/image'
 
 import Logo from '@/assets/logo.svg'
@@ -6,25 +8,23 @@ import Contentwho from '@/assets/imagecontentwho.png'
 import MobileDev from '@/assets/mobiledev.png'
 import Staff from '@/assets/staff.png'
 import DigitalTransform from '@/assets/digitaltransform.png'
-import { Facebook, Instagram, MapPin, Twitter } from 'lucide-react'
+import CircleYellow from '@/assets/circleYellow.svg'
+import { ArrowRight, Facebook, Instagram, MapPin, Twitter } from 'lucide-react'
+import Header from '@/components/header'
 
 export default function Home() {
+  // const [colorMenuIcon, setColorMenuIcon] = useState('text-white')
+
   return (
     <main>
-      <header>
-        <Image src={Logo} alt="Beelieve Logo" />
-
-        <nav>
-          <a href="">Who we are</a>
-          <a href="">What we do</a>
-          <a href="">Contact</a>
-        </nav>
-      </header>
+      <Header />
       {/* Hero */}
-      <section>
-        <div>
-          <h1>Who we are:</h1>
-          <div>
+      <section className="max-w-6xl p-5 m-auto lg:grid-cols-2 lg:grid lg:gap-9 lg:items-center">
+        <div className="flex flex-col gap-7">
+          <h1 className="text-black text-8xl font-bold capitalize w-96">
+            Who we are:
+          </h1>
+          <div className="text-black text-opacity-60 text-base font-normal capitalize leading-loose">
             <p>
               Technological bees, creative developers, believing and creating
               inspiring solutions.
@@ -35,44 +35,68 @@ export default function Home() {
               bring the sweet nectar of technological advancements to life
             </p>
           </div>
-          <form action="">
-            <input type="text" placeholder="Enter Your Email" />
-            <button>Lets Talk</button>
+          <form action="" className="flex flex-row gap-4">
+            <input
+              type="text"
+              placeholder="Enter Your Email"
+              className="p-5 bg-indigo-50 rounded-full w-72 focus:outline-fuchsia-600"
+            />
+            <button className="p-5 bg-fuchsia-600 hover:bg-fuchsia-700 rounded-full text-white text-base font-medium capitalize leading-tight">
+              Lets Talk
+            </button>
           </form>
         </div>
-        <div>
+        <div className="py-7">
           <Image src={HeroImage} alt="Varios rostos sorrindo" quality={100} />
         </div>
       </section>
       {/* Who we are: */}
-      <section className="bg-fuchsia-600">
-        <h3>
-          Technological bees, creative developers, believing and creating
-          inspiring solutions
-        </h3>
-        <div>
-          <h2>Collaboration and Cooperation</h2>
-          <p>
-            Our professionals understand the power of collaboration and work
-            together seamlessly to achieve common goals. They thrive in a
-            collaborative environment, actively sharing knowledge, ideas, and
-            expertise to pollinate innovation and deliver remarkable
-            technological solutions.
-          </p>
-          <a href="">View More</a>
-        </div>
-        <div>
-          <Image
-            src={Contentwho}
-            alt="Pessoas trabalhando com vista para predios da cidade"
-          />
-        </div>
+      <section className="bg-fuchsia-600" id="whoweare">
+        <section className="max-w-6xl px-5 py-16 m-auto">
+          <h3 className="text-center text-white text-2xl font-semibold mb-16 max-w-xl m-auto">
+            Technological bees, creative developers, believing and creating
+            inspiring solutions
+          </h3>
+          <div className="mb-8 flex flex-col gap-4">
+            <h2 className="text-white text-3xl font-semibold">
+              Collaboration and Cooperation
+            </h2>
+            <p className="text-white text-base font-normal max-w-2xl">
+              Our professionals understand the power of collaboration and work
+              together seamlessly to achieve common goals. They thrive in a
+              collaborative environment, actively sharing knowledge, ideas, and
+              expertise to pollinate innovation and deliver remarkable
+              technological solutions.
+            </p>
+            <a
+              href=""
+              className="text-white text-lg hover:decoration-2 font-bold underline capitalize leading-normal inline-flex"
+            >
+              View More
+              <ArrowRight />
+            </a>
+          </div>
+          <div className="relative">
+            <Image
+              src={Contentwho}
+              alt="Pessoas trabalhando com vista para predios da cidade"
+              className="rounded-tl-full rounded-tr-full rounded-br-full relative z-20"
+            />
+            <Image
+              src={CircleYellow}
+              alt="Bolinhas amarelas"
+              className="absolute -top-[30px] right-0 z-0"
+            />
+          </div>
+        </section>
       </section>
       {/* What we do */}
-      <section>
-        <div>
-          <h1>What we do</h1>
-          <div>
+      <section className="max-w-6xl p-5 m-auto" id="whatwedo">
+        <div className="flex flex-col gap-4 pt-8 lg:grid-cols-3 lg:grid lg:gap-9 lg:items-center">
+          <h1 className="text-black text-8xl font-bold capitalize w-96">
+            What we do
+          </h1>
+          <div className="text-black text-opacity-60 text-base font-normal capitalize leading-loose flex flex-col gap-4 col-span-2 max-w-2xl">
             <p>
               At Beelieve, we are passionate about transforming innovative ideas
               into exceptional mobile experiences.
@@ -86,7 +110,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="py-24 border-b border-black flex flex-col gap-8">
+        <div className="py-24 border-b border-black lg:grid-cols-2 lg:grid lg:gap-9 lg:items-center gap-8">
           <Image src={MobileDev} alt="" className="rounded-full" />
           <div className="flex flex-col gap-4">
             <h4 className="text-neutral-900 text-xl font-medium leading-snug">
@@ -109,15 +133,19 @@ export default function Home() {
             </p>
             <a
               href=""
-              className="h-5 text-neutral-900 text-lg font-medium underline leading-snug"
+              className="h-5 text-neutral-900 text-lg hover:decoration-2 font-medium underline leading-snug"
             >
               More shots from this project ↗
             </a>
           </div>
         </div>
 
-        <div className="py-24 border-b border-black flex flex-col gap-8">
-          <Image src={DigitalTransform} alt="" className="rounded-full" />
+        <div className="py-24 border-b border-black gap-8 lg:grid-cols-2 lg:grid lg:gap-9 lg:items-center ">
+          <Image
+            src={DigitalTransform}
+            alt=""
+            className="rounded-full lg:order-2"
+          />
           <div className="flex flex-col gap-4">
             <h4 className="text-neutral-900 text-xl font-medium leading-snug">
               Digital Transformation
@@ -136,14 +164,14 @@ export default function Home() {
 
             <a
               href=""
-              className="h-5 text-neutral-900 text-lg font-medium underline leading-snug"
+              className="h-5 text-neutral-900 hover:decoration-2 text-lg font-medium underline leading-snug"
             >
               More shots from this project ↗
             </a>
           </div>
         </div>
 
-        <div className="py-24 border-b border-black flex flex-col gap-8">
+        <div className="py-24 border-b border-black lg:grid-cols-2 lg:grid lg:gap-9 lg:items-center gap-8">
           <Image src={Staff} alt="" className="rounded-full" />
           <div className="flex flex-col gap-4">
             <h4 className="text-neutral-900 text-xl font-medium leading-snug">
@@ -163,7 +191,7 @@ export default function Home() {
             </p>
             <a
               href=""
-              className="h-5 text-neutral-900 text-lg font-medium underline leading-snug"
+              className="h-5 text-neutral-900 text-lg hover:decoration-2 font-medium underline leading-snug"
             >
               More shots from this project ↗
             </a>
@@ -171,24 +199,33 @@ export default function Home() {
         </div>
       </section>
       {/* CTA */}
-      <section className="bg-cover bg-left relative bg-[#FFB532] bg-[url(../assets/bgcta.svg)] py-16 bg-no-repeat">
-        <h2 className="text-black text-4xl capitalize leading-[56px]">
-          Impact and Value Creation
-        </h2>
-        <div>
-          <p className="leading-loose text-black text-base font-normal ">
-            Our professionals, create impactful value through technology. They
-            leverage their skills and expertise to develop solutions that drive
-            business growth, enhance user experiences, and positively impact
-            society. They strive to make a meaningful difference through their
-            technological contributions.
-          </p>
-          <a href="">View More</a>
-        </div>
+      <section className="mt-24 bg-left bg-contain relative bg-[#FFB532] bg-[url(../assets/bgcta.svg)] py-16 bg-no-repeat">
+        <section className="max-w-6xl p-5 m-auto flex flex-col gap-4">
+          <h2 className="text-black text-4xl capitalize leading-[56px]">
+            Impact and Value Creation
+          </h2>
+          <div className="flex flex-col gap-4">
+            <p className="leading-loose text-black text-base font-normal ">
+              Our professionals, create impactful value through technology. They
+              leverage their skills and expertise to develop solutions that
+              drive business growth, enhance user experiences, and positively
+              impact society. They strive to make a meaningful difference
+              through their technological contributions.
+            </p>
+            <a
+              href=""
+              className="text-black text-lg font-bold underline hover:decoration-2 capitalize leading-normal inline-flex"
+            >
+              View More
+              <ArrowRight />
+            </a>
+          </div>
+        </section>
       </section>
-      <footer className="flex flex-col gap-8 pt-14">
-        <section className="max-w-6xl p-5 flex gap-8 flex-col">
-          <div className="flex items-center flex-col gap-4">
+      {/* Footer */}
+      <footer className="flex flex-col gap-8 pt-12">
+        <section className="max-w-6xl w-full p-5 gap-8 m-auto lg:grid-cols-2 grid lg:gap-9">
+          <div className="flex items-center lg:items-start flex-col gap-4 ">
             <Image src={Logo} alt="Beelieve Logo" />
             <span className="flex">
               <MapPin /> Diam ullamcorper risus
@@ -236,11 +273,15 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-black bg-opacity-80">
-          <section className="max-w-6xl p-5 items-center flex flex-col gap-4 text-white">
+          <section className="max-w-6xl p-5 m-auto items-center flex flex-col lg:flex-row lg:justify-between gap-4 text-white">
             <p>© 2023 Beelieve - All Rights Reserved</p>
             <div className="flex gap-8">
-              <a href="">Terms of use</a>
-              <a href="">Privacy policy</a>
+              <a href="" className="hover:decoration-2 hover:underline">
+                Terms of use
+              </a>
+              <a href="" className="hover:decoration-2 hover:underline">
+                Privacy policy
+              </a>
             </div>
           </section>
         </section>
