@@ -2,15 +2,15 @@
 'use client'
 import Image from 'next/image'
 
-import Logo from '@/assets/logo.svg'
 import HeroImage from '@/assets/heroimg.png'
 import Contentwho from '@/assets/imagecontentwho.png'
 import MobileDev from '@/assets/mobiledev.png'
 import Staff from '@/assets/staff.png'
 import DigitalTransform from '@/assets/digitaltransform.png'
 import CircleYellow from '@/assets/circleYellow.svg'
-import { ArrowRight, Facebook, Instagram, MapPin, Twitter } from 'lucide-react'
 import Header from '@/components/header'
+import Link from 'next/link'
+import Footer from '@/components/footer'
 
 export default function Home() {
   // const [colorMenuIcon, setColorMenuIcon] = useState('text-white')
@@ -35,16 +35,14 @@ export default function Home() {
               bring the sweet nectar of technological advancements to life
             </p>
           </div>
-          <form action="" className="flex flex-row gap-4">
-            <input
-              type="text"
-              placeholder="Enter Your Email"
-              className="p-5 bg-indigo-50 rounded-full w-72 focus:outline-fuchsia-600"
-            />
-            <button className="p-5 bg-fuchsia-600 hover:bg-fuchsia-700 rounded-full text-white text-base font-medium capitalize leading-tight">
-              Lets Talk
-            </button>
-          </form>
+
+          <Link
+            className="p-5 bg-fuchsia-600 hover:bg-fuchsia-700 rounded-full text-white
+            text-base font-medium capitalize leading-tight w-fit"
+            href="/contact"
+          >
+            Lets Talk
+          </Link>
         </div>
         <div className="py-7">
           <Image src={HeroImage} alt="Varios rostos sorrindo" quality={100} />
@@ -68,13 +66,6 @@ export default function Home() {
               expertise to pollinate innovation and deliver remarkable
               technological solutions.
             </p>
-            <a
-              href=""
-              className="text-white text-lg hover:decoration-2 font-bold underline capitalize leading-normal inline-flex"
-            >
-              View More
-              <ArrowRight />
-            </a>
           </div>
           <div className="relative">
             <Image
@@ -110,7 +101,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="py-24 border-b border-black lg:grid-cols-2 lg:grid lg:gap-9 lg:items-center gap-8">
+        <div className="py-24 border-b border-black lg:grid-cols-2 grid lg:gap-9 lg:items-center gap-8">
           <Image src={MobileDev} alt="" className="rounded-full" />
           <div className="flex flex-col gap-4">
             <h4 className="text-neutral-900 text-xl font-medium leading-snug">
@@ -131,16 +122,10 @@ export default function Home() {
               step of the way. Let us be your technology partner in creating
               amazing mobile software that stands out in the digital landscape.
             </p>
-            <a
-              href=""
-              className="h-5 text-neutral-900 text-lg hover:decoration-2 font-medium underline leading-snug"
-            >
-              More shots from this project ↗
-            </a>
           </div>
         </div>
 
-        <div className="py-24 border-b border-black gap-8 lg:grid-cols-2 lg:grid lg:gap-9 lg:items-center ">
+        <div className="py-24 border-b border-black gap-8 lg:grid-cols-2 grid lg:gap-9 lg:items-center ">
           <Image
             src={DigitalTransform}
             alt=""
@@ -161,17 +146,10 @@ export default function Home() {
               creating cutting-edge solutions that enable businesses to thrive
               in the digital era.
             </p>
-
-            <a
-              href=""
-              className="h-5 text-neutral-900 hover:decoration-2 text-lg font-medium underline leading-snug"
-            >
-              More shots from this project ↗
-            </a>
           </div>
         </div>
 
-        <div className="py-24 border-b border-black lg:grid-cols-2 lg:grid lg:gap-9 lg:items-center gap-8">
+        <div className="py-24 border-b border-black lg:grid-cols-2 grid lg:gap-9 lg:items-center gap-8">
           <Image src={Staff} alt="" className="rounded-full" />
           <div className="flex flex-col gap-4">
             <h4 className="text-neutral-900 text-xl font-medium leading-snug">
@@ -189,17 +167,11 @@ export default function Home() {
               they create inspiring solutions that push the boundaries of whats
               possible.
             </p>
-            <a
-              href=""
-              className="h-5 text-neutral-900 text-lg hover:decoration-2 font-medium underline leading-snug"
-            >
-              More shots from this project ↗
-            </a>
           </div>
         </div>
       </section>
       {/* CTA */}
-      <section className="mt-24 bg-left bg-contain relative bg-[#FFB532] bg-[url(../assets/bgcta.svg)] py-16 bg-no-repeat">
+      <section className="mt-24 bg-left lg:bg-contain bg-cover relative bg-[#FFB532] bg-[url(../assets/bgcta.svg)] py-16 bg-no-repeat">
         <section className="max-w-6xl p-5 m-auto flex flex-col gap-4">
           <h2 className="text-black text-4xl capitalize leading-[56px]">
             Impact and Value Creation
@@ -212,80 +184,11 @@ export default function Home() {
               impact society. They strive to make a meaningful difference
               through their technological contributions.
             </p>
-            <a
-              href=""
-              className="text-black text-lg font-bold underline hover:decoration-2 capitalize leading-normal inline-flex"
-            >
-              View More
-              <ArrowRight />
-            </a>
           </div>
         </section>
       </section>
       {/* Footer */}
-      <footer className="flex flex-col gap-8 pt-12">
-        <section className="max-w-6xl w-full p-5 gap-8 m-auto lg:grid-cols-2 grid lg:gap-9">
-          <div className="flex items-center lg:items-start flex-col gap-4 ">
-            <Image src={Logo} alt="Beelieve Logo" />
-            <span className="flex">
-              <MapPin /> Diam ullamcorper risus
-            </span>
-            <div className="flex gap-8">
-              <a
-                href=""
-                className="hover:bg-amber-400 rounded-full transition-all p-2"
-              >
-                <Instagram />
-              </a>
-              <a
-                href=""
-                className="hover:bg-amber-400 rounded-full transition-all p-2"
-              >
-                <Twitter />
-              </a>
-              <a
-                href=""
-                className="hover:bg-amber-400 rounded-full transition-all p-2"
-              >
-                <Facebook />
-              </a>
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <nav className="flex flex-col gap-4">
-              <a href="">Sodales tortor</a>
-              <a href="">Hac purus</a>
-              <a href="">Etiam duis</a>
-              <a href="">Facilisi tellus</a>
-            </nav>
-            <nav className="flex flex-col gap-4">
-              <a href="">Sodales tortor</a>
-              <a href="">Hac purus</a>
-              <a href="">Etiam duis</a>
-              <a href="">Facilisi tellus</a>
-            </nav>
-            <nav className="flex flex-col gap-4">
-              <a href="">Sodales tortor</a>
-              <a href="">Hac purus</a>
-              <a href="">Etiam duis</a>
-              <a href="">Facilisi tellus</a>
-            </nav>
-          </div>
-        </section>
-        <section className="bg-black bg-opacity-80">
-          <section className="max-w-6xl p-5 m-auto items-center flex flex-col lg:flex-row lg:justify-between gap-4 text-white">
-            <p>© 2023 Beelieve - All Rights Reserved</p>
-            <div className="flex gap-8">
-              <a href="" className="hover:decoration-2 hover:underline">
-                Terms of use
-              </a>
-              <a href="" className="hover:decoration-2 hover:underline">
-                Privacy policy
-              </a>
-            </div>
-          </section>
-        </section>
-      </footer>
+      <Footer />
     </main>
   )
 }

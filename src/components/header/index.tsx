@@ -26,10 +26,10 @@ export default function Header() {
 
         {open && (
           <nav className="flex justify-between items-center pt-8">
-            <a href="#whoweare" className="hover:underline hover:decoration-2">
+            <a href="/#whoweare" className="hover:underline hover:decoration-2">
               Who we are
             </a>
-            <a href="#whatwedo" className="hover:underline hover:decoration-2">
+            <a href="/#whatwedo" className="hover:underline hover:decoration-2">
               What we do
             </a>
             <Link
