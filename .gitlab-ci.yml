@@ -1,4 +1,4 @@
-image: "node:20.2.0"
+image: "node:20.2.0-buster"
 
 
 .default_rules:
@@ -79,7 +79,7 @@ build-assets:
   stage: build
   artifacts:
     paths:
-      - out/
+      - _site/
   script:
     - npm i
     - npm run build
@@ -112,19 +112,16 @@ deploy_prod:
   stage: deploy
   script:
     - rm -rf ./.cache
-    - rm -rf ./out
+    - rm -rf ./_site
+    - apt-get update -qy
+    - apt-get install -y python-dev python-pip
+    - pip install awscli
     - npm i
     - npm run build
-    - apt update
-    - apt install pipx -y
-    - pipx install awscli
-    - pipx ensurepath
-    - source ~/.bashrc
-    - aws s3 cp out/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
+    - aws s3 cp _site/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
     - aws cloudfront create-invalidation --distribution-id EKISZ9I0HSONS --paths "/*"
   only:
     - dev
-
 
 # deploy_prod:
 #   environment:
@@ -132,12 +129,12 @@ deploy_prod:
 #   stage: deploy
 #   script:
 #     - rm -rf ./.cache
-#     - rm -rf ./out
+#     - rm -rf ./_site
 #     - npm run build
 #     - apk update
 #     - apk add --no-cache python3-dev py3-pip
 #     - pip install awscli
-#     - aws s3 cp out/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
+#     - aws s3 cp _site/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
 #     - aws cloudfront create-invalidation --distribution-id EKISZ9I0HSONS --paths "/*"
 #   only:
 #     - master
