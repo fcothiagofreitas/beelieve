@@ -102,7 +102,6 @@ sonarqube-check:
       - .sonar/cache
   script:
     - sonar-scanner
-  allow_failure: true
   rules:
     - !reference [ .default_rules, rules ]
 
