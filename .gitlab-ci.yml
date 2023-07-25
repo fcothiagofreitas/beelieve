@@ -79,7 +79,7 @@ build-assets:
   stage: build
   artifacts:
     paths:
-      - _site/
+      - out/
   script:
     - npm i
     - npm run build
@@ -112,13 +112,13 @@ deploy_prod:
   stage: deploy
   script:
     - rm -rf ./.cache
-    - rm -rf ./_site
+    - rm -rf ./out
     - apt-get update -qy
     - apt-get install -y python-dev python-pip
     - pip install awscli
     - npm i
     - npm run build
-    - aws s3 cp _site/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
+    - aws s3 cp out/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
     - aws cloudfront create-invalidation --distribution-id EKISZ9I0HSONS --paths "/*"
   only:
     - dev
@@ -129,12 +129,12 @@ deploy_prod:
 #   stage: deploy
 #   script:
 #     - rm -rf ./.cache
-#     - rm -rf ./_site
+#     - rm -rf ./out
 #     - npm run build
 #     - apk update
 #     - apk add --no-cache python3-dev py3-pip
 #     - pip install awscli
-#     - aws s3 cp _site/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
+#     - aws s3 cp out/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
 #     - aws cloudfront create-invalidation --distribution-id EKISZ9I0HSONS --paths "/*"
 #   only:
 #     - master
