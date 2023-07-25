@@ -39,7 +39,7 @@ export default function RootLayout({
           content="Technological bees, creative developers, believing and creating inspiring solutions."
         />
         <meta property="og:url" content="https://beelieve.dev/" />
-        <meta property="og:site_name" content="Next.js" />
+        <meta property="og:site_name" content="Beelieve" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:image:url" content="https://beelieve.dev/og.png" />
         <meta property="og:image:width" content="800" />
