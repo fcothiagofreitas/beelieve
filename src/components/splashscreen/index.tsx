@@ -18,7 +18,7 @@ export default function SplashScreen({ finishLoading }: slashProps) {
       targets: '#videoSlash',
       delay: 0,
       scale: 1,
-      duration: 3500,
+      duration: 3300,
       easing: 'easeInOutExpo',
     })
   }
