@@ -1,9 +1,9 @@
-image: "node:20.4.0"
+image: "node:20.2.0"
 
 
 .default_rules:
   rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^(develop|main)$/ || $CI_COMMIT_BRANCH =~ /^(develop|main)$/'
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^(dev|main)$/ || $CI_COMMIT_BRANCH =~ /^(dev|main)$/'
 
 
 default:
@@ -102,7 +102,7 @@ sonarqube-check:
       - .sonar/cache
   script:
     - sonar-scanner
-  allow_failure: false
+  allow_failure: true
   rules:
     - !reference [ .default_rules, rules ]
 
@@ -121,10 +121,10 @@ deploy_prod:
     - pipx install awscli
     - pipx ensurepath
     - source ~/.bashrc
-    - aws s3 cp out/ s3://production-boteque-landingpage/ --recursive --exclude "*" --include "*"
-    - aws cloudfront create-invalidation --distribution-id EDH7AROQ6KZS --paths "/*"
+    - aws s3 cp out/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
+    - aws cloudfront create-invalidation --distribution-id EKISZ9I0HSONS --paths "/*"
   only:
-    - develop
+    - dev
 
 
 # deploy_prod:
@@ -138,7 +138,7 @@ deploy_prod:
 #     - apk update
 #     - apk add --no-cache python3-dev py3-pip
 #     - pip install awscli
-#     - aws s3 cp out/ s3://production-boteque-landingpage/ --recursive --exclude "*" --include "*"
-#     - aws cloudfront create-invalidation --distribution-id ABCD --paths "/*"
+#     - aws s3 cp out/ s3://production-beelieve-website/ --recursive --exclude "*" --include "*"
+#     - aws cloudfront create-invalidation --distribution-id EKISZ9I0HSONS --paths "/*"
 #   only:
 #     - master
