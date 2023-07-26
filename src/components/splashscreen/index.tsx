@@ -30,7 +30,7 @@ export default function SplashScreen({ finishLoading }: slashProps) {
   }, [])
   return (
     <div className="bg-gradient-to-tr from-slate-50 to-slate-200 w-screen h-screen justify-center items-center flex">
-      <Lottie animationData={animaLogo} className="h-36" />
+      <Lottie animationData={animaLogo} className="h-36" id="videoSlash" />
     </div>
   )
 }
