@@ -8,7 +8,7 @@ interface slashProps {
 }
 
 export default function SplashScreen({ finishLoading }: slashProps) {
-  const [isMounted, setIsMounted] = useState(false)
+  const [_, setIsMounted] = useState(false)
 
   const animate = () => {
     const loader = anime.timeline({
