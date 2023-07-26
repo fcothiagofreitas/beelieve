@@ -9,9 +9,9 @@ export default function Footer() {
         <div className="flex items-center md:flex-row flex-col justify-between gap-4 ">
           <Image src={Logo} alt="Beelieve Logo" />
           <span className="flex">
-            <MapPin /> Diam ullamcorper risus
+            <MapPin /> 587 E SAMPLE RD, SUITE 2 - Pompano Beach, FL 33064
           </span>
-          <div className="flex gap-8">
+          {/* <div className="flex gap-8">
             <a
               href=""
               className="hover:bg-amber-400 rounded-full transition-all p-2"
@@ -30,7 +30,7 @@ export default function Footer() {
             >
               <Facebook />
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="bg-black bg-opacity-80">

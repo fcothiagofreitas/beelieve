@@ -117,7 +117,7 @@ export default function Contact() {
           <input
             type="hidden"
             name="_next"
-            value="http://localhost:3000/thankyou"
+            value="https://beelieve.dev/thankyou"
           ></input>
           <textarea
             placeholder="Content"
